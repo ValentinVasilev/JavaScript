@@ -1,5 +1,5 @@
 let btnId = document.getElementById('buttonid');
-let boxId = document.getElementById('coloverfulbox');
+let boxId = document.getElementById('colorefullBox');
 let pId = document.getElementById('colorName');
 
 
