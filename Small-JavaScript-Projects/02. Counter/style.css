@@ -1,0 +1,45 @@
+h1{
+    font-size: 100px;
+    margin: auto;
+    position: absolute;
+    top: 110px;
+    left: 730px;
+    font-style: italic;
+    
+}
+.display{
+    font-size: 130px;
+    margin: auto;
+    position: absolute;
+    top: 310px;
+    left: 860px;
+    font-style: italic;
+    
+}
+#decrease{
+    font-size: 30px;
+    margin: auto;
+    position: absolute;
+    top: 550px;
+    left: 660px;
+    border: 3px solid red;
+    
+}
+#reset{
+    font-size: 30px;
+    margin: auto;
+    position: absolute;
+    top: 550px;
+    left: 830px;
+    border: 3px solid rgb(72, 255, 0);
+
+}
+#increase{
+    margin: auto;
+    font-size: 30px;
+    position: absolute;
+    top: 550px;
+    left: 950px;
+    border: 3px solid rgb(23, 116, 238);
+
+}
