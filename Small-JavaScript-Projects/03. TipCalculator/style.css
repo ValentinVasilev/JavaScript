@@ -9,6 +9,8 @@
     
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
 }
 h2{
     position: absolute;
