@@ -27,5 +27,5 @@ btnSubmit.addEventListener("click", (e) => {
   //Calculate tip
   let tipsCalculate = Number(priceInput.value * tips.value);
   let tipPerPerson = tipsCalculate / peopleCount.value;
-  display.innerHTML = tipPerPerson.toFixed(2) + "лв. на човек.";
+  display.innerHTML = tipPerPerson.toFixed(2)+'лв. на човек.';
 });
