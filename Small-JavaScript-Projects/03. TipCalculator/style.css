@@ -1,0 +1,79 @@
+.box{
+    position: absolute;
+    font-size: larger;
+    height: 500px;
+    width: 400px;
+    border: 3px solid rgb(34, 37, 43);
+    top: 300px;
+    left: 700px;
+    
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+h2{
+    position: absolute;
+    top: 240px;
+    left: 50px;
+}
+h3{
+    background: rgb(23, 26, 26);
+    color:darkgoldenrod;
+    margin:0;
+    padding: 10px 100px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: normal;
+    
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+h4{
+    position: absolute;
+    top: 140px;
+    left: 50px;
+    font-size: 25px;
+}
+p{
+    padding: 1px 80px;
+    font-size: 22px;
+    font-weight: normal;
+
+}
+.display{
+    position: absolute;
+    top: 370px;
+    left: 60px;
+}
+.input{
+    padding: 5px 17px;
+    position: absolute;
+    left: 80px;
+}
+.numberOfPeople{
+    padding: 5px 17px;
+    position: absolute;
+    top: 320px;
+    left: 70px;
+}
+#curency{
+    position: absolute;
+    left: -60px;
+    top: 95px;
+}
+form{
+    position: absolute;
+    top: 220px;
+    left: 60px;
+    
+}
+#tip{
+    font-size: 20px;
+}
+#btn{
+    position: absolute;
+    top: 240px;
+    left: 90px;
+    font-size: larger;
+    border-color: darkgreen;
+    background-color: greenyellow;
+}

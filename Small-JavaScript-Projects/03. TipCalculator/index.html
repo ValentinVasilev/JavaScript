@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Small-JavaScript-Projects/03. TipCalculator/style.css">
+
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <div class="box" id="tipBox">
+        <h3>Tip Calculator</h3>
+        <div id="calculator">
+            <p>Колко ви е сметката ?</p>
+             <input class="input" id="price" placeholder="20лв."/>
+            <p id="curency">BGN</p>
+        </div>
+        <h4>Как беше обслужването ?</h4>
+
+        <form class="form">
+            <label for="tips"></label>
+            <select name="tip" id="tip">
+                <option disabled selected value="0">-- Изберете бакшиш --</option>
+                <option>5% - Ужасно</option>
+                <option>10% - Зле</option>
+                <option>15% - Нормлано</option>
+                <option>20% - Добро</option>
+                <option>30% - Невероятно!</option>
+            </select>
+            <input type="submit" value="Изчисли" id="btn">
+        </form>
+        <h2>Колко човека бяхте ?</h2>
+        <input class="numberOfPeople" id="numberOfPeople" placeholder="3">
+        <p class="display" id="display">125.25лв.</p>
+    </div>
+    
+</body>
+<script src="/Small-JavaScript-Projects/03. TipCalculator/script.js"></script>
+</html>
