@@ -11,7 +11,7 @@ btnSubmit.addEventListener("click", (e) => {
 
   //Check if input fields are empty or negative numbers.
   if (priceInput.value <= 0) {
-      display.style.color = 'red';
+    display.style.color = 'red';
     display.innerHTML = "Невалидна сума.";
     return;
   } else if (!Number(tips.value)) {
