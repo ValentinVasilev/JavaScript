@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(50, 172, 209);
+}
+h1{
+    color: gold;
+    position: absolute;
+    top: 190px;
+    left: 500px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+h2{
+    color: white;
+    font-size: 70px;
+    font-style: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    top: 50px;
+    left: 700px;
+}
+h3{
+    color: greenyellow;
+    font-style: normal;
+    font-size: 30px;
+    position: absolute;
+    top: 250px;
+    left: 700px;
+}
+h4{
+    color: rgb(7, 100, 58);
+    font-style:normal;
+    font-size: 32px;
+    position: absolute;
+    top: 300px;
+    left: 610px;
+    text-decoration-line: overline;
+}
+#inputField{
+    font-size: 25px;
+    width: 670px;
+    position: absolute;
+    top: 500px;
+    left: 600px;
+    
+}
