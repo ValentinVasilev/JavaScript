@@ -22,6 +22,7 @@ addButton.addEventListener('click', () => {
 
     createPelement.appendChild(createBtn);
 
+    inputField.value = '';
     createBtn.addEventListener('click', () => {
         createUl.remove();
     })
