@@ -13,3 +13,13 @@ body{
   border-radius: 10px;
   background-color: aqua;
 }
+.card{
+    position: absolute;
+    top: 120px;
+    left: 750px;
+    width: 18rem;
+}
+/* #moreInfo{
+    position: absolute;
+    top: 200px;
+} */

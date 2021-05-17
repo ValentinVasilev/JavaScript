@@ -13,8 +13,16 @@
 
 <body>
     <div class="input" id="input">
-        <input type="text" id="inputField">
+        <input type="text" id="inputField" placeholder="Enter City Name...">
         <button type="submit" id="getWeatherBtn">Get Weather</button>
+    </div>
+    <div class="card" id="cityCard" style="display: none;">
+        <img src="/05. GetWeather/root/pictures/Montana.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">City</h5>
+            <p id="max-temperature"></p>
+            <p id="min-temperature"></p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
