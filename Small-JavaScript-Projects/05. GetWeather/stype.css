@@ -19,6 +19,9 @@ body{
     left: 750px;
     width: 18rem;
 }
+.card-img-top{
+
+}
 .card-title{
     position:fixed;
     left: 870px;
