@@ -19,6 +19,8 @@ let availableCitys = [
     pictureURL: "/05. GetWeather/root/pictures/Varna.jpg"
   },
 ];
+
+//SVG icons used from bootstrap icon website.
 const celsius = " °C";
 const celsiusMaxIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-high" viewBox="0 0 16 16">
 <path d="M9.5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585a1.5 1.5 0 0 1 1 1.415z"/>
@@ -42,18 +44,23 @@ const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25
 <path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.624 9.624 0 0 0 7.556 8a9.624 9.624 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.595 10.595 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.624 9.624 0 0 0 6.444 8a9.624 9.624 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5z"/>
 <path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192zm0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192z"/>
 </svg>`;
-const windIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+const windIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
 <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
 </svg>`;
-const directionIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-compass" viewBox="0 0 16 16">
+const directionIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-compass" viewBox="0 0 16 16">
 <path d="M8 16.016a7.5 7.5 0 0 0 1.962-14.74A1 1 0 0 0 9 0H7a1 1 0 0 0-.962 1.276A7.5 7.5 0 0 0 8 16.016zm6.5-7.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
 <path d="m6.94 7.44 4.95-2.83-2.83 4.95-4.949 2.83 2.828-4.95z"/>
 </svg>`;
+const infoIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-info-square-fill" viewBox="0 0 16 16">
+<path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg>`;
 
+//Access to all elements
 let getBtn = document.getElementById("getWeatherBtn");
 let inputField = document.getElementById("inputField");
 let cityCard = document.getElementById("cityCard");
 let getCardImage = document.getElementsByClassName('card-img-top')[0];
+let getCardTitle = document.getElementById('card-title');
 
 let sunriseElement = document.getElementById('sunrise');
 let sunsetElement = document.getElementById('sunset');
@@ -63,9 +70,15 @@ let pressureElement = document.getElementById('pressure');
 let risingElement = document.getElementById('rising');
 let visibilityElement = document.getElementById('visibility');
 
+let windElement = document.getElementById('wind');
+let windTemperatureElement = document.getElementById('windTemperature');
+let windDirectionElement = document.getElementById('direction');
+
 let cityInfo;
+
+//add Event to the get button
 getBtn.addEventListener("click", () => {
-  
+ 
   getCity(inputField.value);
   let latitued = cityInfo.latitued;
   let logtitued = cityInfo.logtitued;
@@ -77,32 +90,42 @@ getBtn.addEventListener("click", () => {
   imgElement.classList.add('card-img-top');
   imgElement.src = picture;
 
+  //URl to search for the city coordinates.
   const stringURL = `https://yahoo-weather5.p.rapidapi.com/weather?lat=${logtitued}&long=${latitued}&format=json&u=f`;
   
   let convertFtoCLow = 0;
   let convertFtoCHigh = 0;
-  let convertAverageTemprature = 0;
-
+  let convertAverageTemperature = 0;
+  let convertWindTemperature = 0;
+  
+  //fetch the weather data from Yahoo API
   fetch(
     stringURL,
     {
       method: "GET",
       headers: {
-      
+        
       },
     }
   )
+  //Response from the fetch, with the all required data for the current city
     .then((response) => {
       let responseJSON = response.json();
       responseJSON.then((data) => {
+        //the main objects from the response.
         let observations = data.current_observation;
         let location = data.location;
         let foreCast = data.forecasts;
 
+        console.log(observations);
+        console.log(location);
+        console.log(foreCast);
         foreCast.forEach((day) => {
+          //Convert temperature from the fetch, F to C
           convertFtoCLow = ((day.low - 32) * 5) / 9;
           convertFtoCHigh = ((day.high - 32) * 5) / 9;
-          convertAverageTemprature = ((observations.condition.temperature - 32) * 5) / 9;
+          convertAverageTemperature = ((observations.condition.temperature - 32) * 5) / 9;
+          convertWindTemperature = ((observations.wind.chill - 32) * 5)/  9;
 
           let maxTemperatureId = document.getElementById("max-temperature");
           maxTemperatureId.innerHTML = "Maximum Temperature: " + celsiusMaxIcon + convertFtoCHigh.toFixed(0) + celsius;
@@ -112,21 +135,27 @@ getBtn.addEventListener("click", () => {
           minTemperatureId.innerHTML =  "Minimum Temperature: " + celsiusMinIcon + convertFtoCLow.toFixed(0) + celsius;
     
           let currentTemperature = document.getElementById('curentTemprature');
-          currentTemperature.innerHTML = "Temprature now: " + currentTempratureIcon + convertAverageTemprature.toFixed(0) + celsius;
+          currentTemperature.innerHTML = "Temprature now: " + currentTempratureIcon + convertAverageTemperature.toFixed(0) + celsius;
         });
 
+        //Fill up the rest of the important data
         sunriseElement.innerHTML = sunriseIcon + "  Sunrise " + observations.astronomy.sunrise;
         sunsetElement.innerHTML = sunsetIcon + "  Sunset " + observations.astronomy.sunset;
-        humidityElement.innerHTML = "Humidity " + arrowIcon + " " + observations.atmosphere.humidity; 
-        pressureElement.innerHTML = "Pressure " + arrowIcon + " " + observations.atmosphere.pressure;
+        humidityElement.innerHTML = "Humidity " + arrowIcon + " " + observations.atmosphere.humidity + "%"; 
+        pressureElement.innerHTML = "Pressure " + arrowIcon + " " + observations.atmosphere.pressure + " Pa";
         risingElement.innerHTML = "Risinng " + arrowIcon + " " + observations.atmosphere.rising;
-        visibilityElement.innerHTML = "Visibility " + arrowIcon + " " + observations.atmosphere.rising;
+        visibilityElement.innerHTML = "Visibility " + arrowIcon + " " + observations.atmosphere.visibility * 1.6 + " Km.";
+        windTemperatureElement.innerHTML = windIcon + "Temperature " + convertWindTemperature.toFixed(0) + celsius;
+        windDirectionElement.innerHTML = directionIcon + " WindDirection " + observations.wind.direction + "°";
+     
+        // getCardTitle.innerHTML = infoIcon;
+        getCardTitle.addEventListener('click', () => {
+              alert(`City: ${location.city}, County: ${location.country}
+          Lat: ${location.lat}, Long: ${location.long}
+          Region: ${location.region}, TimeZone: ${location.timezone_id}`);
+        })
+      
 
-        //0: {day: "Sun", date: 1621134000, low: 55, high: 71, text: "Rain", …}
-        console.log(observations);
-        console.log(location);
-        console.log(foreCast);
-        console.log(observations.condition.temperature);
       });
     })
 
@@ -136,9 +165,11 @@ getBtn.addEventListener("click", () => {
 
 
   let card = document.getElementsByClassName("card-title")[0];
-
+  let moreInfo = document.getElementById('moreInfo');
+  
+  moreInfo.style.display = "inline";
   cityCard.style.display = "inline";
-  card.innerHTML = inputField.value;
+  card.innerHTML = infoIcon + " " + inputField.value;
 
   inputField.value = "";
 });

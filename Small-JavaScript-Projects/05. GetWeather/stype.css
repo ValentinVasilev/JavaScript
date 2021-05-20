@@ -24,7 +24,7 @@ body{
 }
 .card-title{
     position:fixed;
-    left: 870px;
+    left: 840px;
     top: 340px;
     /* top: 36%;
     left: 45%;
@@ -40,9 +40,9 @@ width: 150px;
 #moreInfo{
     position: absolute;
     top: 120px;
-    left: 100px;
+    left: 1100px;
     height: 400px;
-    width: 540px;
+    width: 220px;
     background: transparent;
 }
 #moreInfo2{
