@@ -104,8 +104,7 @@ getBtn.addEventListener("click", () => {
     {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "c3945cbbd2mshd4ea8ca5946f3e9p1fdedejsn44e6943be2a6",
-        "x-rapidapi-host": "yahoo-weather5.p.rapidapi.com",
+        
       },
     }
   )
