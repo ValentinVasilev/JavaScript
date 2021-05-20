@@ -1,4 +1,3 @@
-import { key, host } from "./config.file";
 
 let availableCitys = [
   {
@@ -30,8 +29,10 @@ const celsiusMinIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" heigh
 <path d="M5.5 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM8 1a1.5 1.5 0 0 0-1.5 1.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0l-.166-.15V2.5A1.5 1.5 0 0 0 8 1z"/>
 </svg>`;
 
-const maxTemperature = 0;
-const minTemperature = 0;
+const currentTempratureIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-sun" viewBox="0 0 16 16">
+<path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585A1.5 1.5 0 0 1 5 12.5z"/>
+<path d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0V2.5zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1zm5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5zm4.243 1.757a.5.5 0 0 1 0 .707l-.707.708a.5.5 0 1 1-.708-.708l.708-.707a.5.5 0 0 1 .707 0zM8 5.5a.5.5 0 0 1 .5-.5 3 3 0 1 1 0 6 .5.5 0 0 1 0-1 2 2 0 0 0 0-4 .5.5 0 0 1-.5-.5zM12.5 8a.5.5 0 0 1 .5-.5h1a.5.5 0 1 1 0 1h-1a.5.5 0 0 1-.5-.5zm-1.172 2.828a.5.5 0 0 1 .708 0l.707.708a.5.5 0 0 1-.707.707l-.708-.707a.5.5 0 0 1 0-.708zM8.5 12a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5z"/>
+</svg>`;
 
 let getBtn = document.getElementById("getWeatherBtn");
 let inputField = document.getElementById("inputField");
@@ -39,7 +40,6 @@ let cityCard = document.getElementById("cityCard");
 let getCardImage = document.getElementsByClassName('card-img-top')[0];
 
 let cityInfo;
-
 getBtn.addEventListener("click", () => {
   
   getCity(inputField.value);
@@ -57,15 +57,15 @@ getBtn.addEventListener("click", () => {
   
   let convertFtoCLow = 0;
   let convertFtoCHigh = 0;
-
+  let convertAverageTemprature = 0;
 
   fetch(
     stringURL,
     {
       method: "GET",
       headers: {
-        "x-rapidapi-key": key,
-        "x-rapidapi-host": host,
+        "x-rapidapi-key": "c3945cbbd2mshd4ea8ca5946f3e9p1fdedejsn44e6943be2a6",
+        "x-rapidapi-host": "yahoo-weather5.p.rapidapi.com",
       },
     }
   )
@@ -80,6 +80,7 @@ getBtn.addEventListener("click", () => {
         foreCast.forEach((day) => {
           convertFtoCLow = ((day.low - 32) * 5) / 9;
           convertFtoCHigh = ((day.high - 32) * 5) / 9;
+          convertAverageTemprature = ((observations.condition.temperature - 32) * 5) / 9;
 
           let maxTemperatureId = document.getElementById("max-temperature");
           maxTemperatureId.innerHTML = "Maximum Temperature: " + celsiusMaxIcon + convertFtoCHigh.toFixed(0) + celsius;
@@ -88,11 +89,14 @@ getBtn.addEventListener("click", () => {
           let minTemperatureId = document.getElementById("min-temperature");
           minTemperatureId.innerHTML =  "Minimum Temperature: " + celsiusMinIcon + convertFtoCLow.toFixed(0) + celsius;
     
+          let currentTemperature = document.getElementById('curentTemprature');
+          currentTemperature.innerHTML = "Temprature now: " + currentTempratureIcon + convertAverageTemprature.toFixed(0) + celsius;
         });
         //0: {day: "Sun", date: 1621134000, low: 55, high: 71, text: "Rain", …}
         console.log(observations);
         console.log(location);
         console.log(foreCast);
+        console.log(observations.condition.temperature);
       });
     })
 
