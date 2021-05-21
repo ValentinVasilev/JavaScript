@@ -104,7 +104,7 @@ getBtn.addEventListener("click", () => {
     {
       method: "GET",
       headers: {
-       
+      
       },
     }
   )
@@ -155,15 +155,27 @@ getBtn.addEventListener("click", () => {
           Region: ${location.region}, TimeZone: ${location.timezone_id}`);
         })
       
-        let day1 = document.getElementById('card-text2');
-        let highTemp = document.getElementById('card-text3');
-        let minTemp = document.getElementById('card-text4');
-        let statusText = document.getElementById('card-text5');
+        let day1 = document.getElementById('day');
+        let maxTemp = document.getElementById('maxTemp');
+        let minTemp = document.getElementById('minTemp');
+        let statusText = document.getElementById('statusText');
 
-        day1.innerHTML = foreCast[0].day;
-        highTemp.innerHTML = foreCast[0].high;
-        minTemp.innerHTML = foreCast[0].low;
-        statusText.innerHTML = foreCast[0].text;
+        // let day2 = document.getElementById('day2');
+        // let maxTemp2 = document.getElementById('maxTemp2');
+        // let minTemp2 = document.getElementById('minTemp2');
+        // let statusText2 = document.getElementById('statusText2');
+
+        day1.innerHTML = foreCast[1].day;
+        maxTemp.innerHTML = (((foreCast[1].high - 32) * 5) / 9).toFixed(0);
+        minTemp.innerHTML = (((foreCast[1].low - 32) * 5) / 9).toFixed(0);
+        statusText.innerHTML = foreCast[1].text;
+
+        // day2.innerHTML = foreCast[2].day;
+        // maxTemp2.innerHTML = (((foreCast[2].high - 32) * 5) / 9).toFixed(0);
+        // minTemp2.innerHTML = (((foreCast[2].low - 32) * 5) / 9).toFixed(0);
+        // statusText2.innerHTML = foreCast[2].text
+
+        //TODO: Create that one with a for loop.
       });
     })
 

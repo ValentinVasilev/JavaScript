@@ -50,14 +50,51 @@ width: 150px;
     top: 630px;
     left: 250px;
     right: 100px;
-    width: 1400px
+    width: 1400px;
+    
 
 }
-#moreDays > #firstDay{
-    top: 630px;
-    left: 550px;
-    right: 100px;
-    height: 400px;
+#secondCard{
+    top: 0px;
+    left: 0px;
+    right: 500px;
+    height: 300px;
+    width: 250px;
+    background-color: transparent;
+}
+#thirdCard{
+    top: 0px;
+    left: 300px;
+    right: 500px;
+    height: 300px;
+    width: 250px;
+    background-color: transparent;
+}
+#forthCard{
+    top: 0px;
+    left: 600px;
+    right: 500px;
+    height: 300px;
+    width: 250px;
+    background-color: transparent;
+}
+#fifthCard{
+    top: 0px;
+    left: 900px;
+    right: 500px;
+    height: 300px;
+    width: 250px;
+    background-color: transparent;
+
+}
+#lastDay{
+    top: 0px;
+    left: 1200px;
+    right: 500px;
+    height: 300px;
+    width: 250px;
+    background-color: transparent;
+
 }
 .vl {
     border-left: 6px solid green;
