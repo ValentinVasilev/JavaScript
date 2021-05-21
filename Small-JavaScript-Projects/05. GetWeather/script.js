@@ -104,7 +104,7 @@ getBtn.addEventListener("click", () => {
     {
       method: "GET",
       headers: {
-        
+       
       },
     }
   )
@@ -137,7 +137,7 @@ getBtn.addEventListener("click", () => {
           let currentTemperature = document.getElementById('curentTemprature');
           currentTemperature.innerHTML = "Temprature now: " + currentTempratureIcon + convertAverageTemperature.toFixed(0) + celsius;
         });
-
+        console.log(foreCast[0]);
         //Fill up the rest of the important data
         sunriseElement.innerHTML = sunriseIcon + "  Sunrise " + observations.astronomy.sunrise;
         sunsetElement.innerHTML = sunsetIcon + "  Sunset " + observations.astronomy.sunset;
@@ -155,7 +155,15 @@ getBtn.addEventListener("click", () => {
           Region: ${location.region}, TimeZone: ${location.timezone_id}`);
         })
       
+        let day1 = document.getElementById('card-text2');
+        let highTemp = document.getElementById('card-text3');
+        let minTemp = document.getElementById('card-text4');
+        let statusText = document.getElementById('card-text5');
 
+        day1.innerHTML = foreCast[0].day;
+        highTemp.innerHTML = foreCast[0].high;
+        minTemp.innerHTML = foreCast[0].low;
+        statusText.innerHTML = foreCast[0].text;
       });
     })
 

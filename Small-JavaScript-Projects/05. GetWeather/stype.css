@@ -45,13 +45,19 @@ width: 150px;
     width: 220px;
     background: transparent;
 }
-#moreInfo2{
+#moreDays{
     position: absolute;
     top: 630px;
     left: 250px;
     right: 100px;
-    height: 200px;
-    width: 1400px;
+    width: 1400px
+
+}
+#moreDays > #firstDay{
+    top: 630px;
+    left: 550px;
+    right: 100px;
+    height: 400px;
 }
 .vl {
     border-left: 6px solid green;
