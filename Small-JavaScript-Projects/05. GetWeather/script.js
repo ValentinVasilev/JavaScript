@@ -104,7 +104,7 @@ getBtn.addEventListener("click", () => {
     {
       method: "GET",
       headers: {
-        
+    
       },
     }
   )
