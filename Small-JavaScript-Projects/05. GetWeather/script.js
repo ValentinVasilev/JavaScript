@@ -104,7 +104,7 @@ getBtn.addEventListener("click", () => {
     {
       method: "GET",
       headers: {
-    
+  
       },
     }
   )
@@ -137,7 +137,6 @@ getBtn.addEventListener("click", () => {
           let currentTemperature = document.getElementById('curentTemprature');
           currentTemperature.innerHTML = "Temprature now: " + currentTempratureIcon + convertAverageTemperature.toFixed(0) + celsius;
         });
-        console.log(foreCast[0]);
         //Fill up the rest of the important data
         sunriseElement.innerHTML = sunriseIcon + "  Sunrise " + observations.astronomy.sunrise;
         sunsetElement.innerHTML = sunsetIcon + "  Sunset " + observations.astronomy.sunset;
@@ -148,23 +147,19 @@ getBtn.addEventListener("click", () => {
         windTemperatureElement.innerHTML = windIcon + "Temperature " + convertWindTemperature.toFixed(0) + celsius;
         windDirectionElement.innerHTML = directionIcon + " WindDirection " + observations.wind.direction + "°";
         
-       
-        // getCardTitle.innerHTML = infoIcon;
+       //Fill up the information when u klick on info icon.
         getCardTitle.addEventListener('click', () => {
               alert(`City: ${location.city}, County: ${location.country}
           Lat: ${location.lat}, Long: ${location.long}
           Region: ${location.region}, TimeZone: ${location.timezone_id}`);
         })
       
+        //Get all days elements, so can add the information from the API
         let day1 = document.getElementById('day');
         let maxTemp = document.getElementById('maxTemp');
         let minTemp = document.getElementById('minTemp');
         let statusText = document.getElementById('statusText');
-        let weatherStatus = document.getElementById('weatherStatus');
-        let thunderIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cloud-lightning-rain-fill" viewBox="0 0 16 16">
-        <path d="M2.658 11.026a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm9.5 0a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm-7.5 1.5a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm9.5 0a.5.5 0 0 1 .316.632l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.316zm-7.105-1.25A.5.5 0 0 1 7.5 11h1a.5.5 0 0 1 .474.658l-.28.842H9.5a.5.5 0 0 1 .39.812l-2 2.5a.5.5 0 0 1-.875-.433L7.36 14H6.5a.5.5 0 0 1-.447-.724l1-2zm6.352-7.249a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 10H13a3 3 0 0 0 .405-5.973z"/>
-      </svg>`;
-     
+ 
         let day2 = document.getElementById('day2');
         let maxTemp2 = document.getElementById('maxTemp2');
         let minTemp2 = document.getElementById('minTemp2');
@@ -185,16 +180,12 @@ getBtn.addEventListener("click", () => {
         let minTemp5 = document.getElementById('minTemp5');
         let statusText5 = document.getElementById('statusText5');
 
+        //Add the all filtered information from the api response.
         day1.innerHTML = foreCast[1].day;
         maxTemp.innerHTML = (((foreCast[1].high - 32) * 5) / 9).toFixed(0) + celsius;
         minTemp.innerHTML = (((foreCast[1].low - 32) * 5) / 9).toFixed(0) + celsius;
         statusText.innerHTML = foreCast[1].text;
-        // if(foreCast[1].text == 'Thunderstorms'){
-        //   weatherStatus.style.display = 'center';
-        //   weatherStatus.innerHTML = thunderIcon;
-        // }
-  
-
+        
         day2.innerHTML = foreCast[2].day;
         maxTemp2.innerHTML = (((foreCast[2].high - 32) * 5) / 9).toFixed(0) + celsius;
         minTemp2.innerHTML = (((foreCast[2].low - 32) * 5) / 9).toFixed(0) + celsius;
@@ -215,11 +206,6 @@ getBtn.addEventListener("click", () => {
         minTemp5.innerHTML = (((foreCast[5].low - 32) * 5) / 9).toFixed(0) + celsius;
         statusText5.innerHTML = foreCast[5].text
 
-        // for (let i = 0; i < 5; i++) {
-        //   const day = array[i];
-          
-        // }
-        //TODO: Create that one with a for loop.
       });
     })
 
@@ -238,6 +224,7 @@ getBtn.addEventListener("click", () => {
   inputField.value = "";
 });
 
+//Check if entered city is valid city in the availableCitys array.
 function getCity(cityName) {
 
   for (let i = 0; i < availableCitys.length; i++) {
