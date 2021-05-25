@@ -104,6 +104,8 @@ getBtn.addEventListener("click", () => {
     {
       method: "GET",
       headers: {
+        key,
+        host
       },
     }
   )
@@ -154,6 +156,7 @@ getBtn.addEventListener("click", () => {
         })
       
         //Get all days elements, so can add the information from the API
+        let moreDays = document.getElementById('moreDays');
         let day1 = document.getElementById('day');
         let maxTemp = document.getElementById('maxTemp');
         let minTemp = document.getElementById('minTemp');
@@ -181,29 +184,29 @@ getBtn.addEventListener("click", () => {
 
         //Add the all filtered information from the api response.
         day1.innerHTML = foreCast[1].day;
-        maxTemp.innerHTML = (((foreCast[1].high - 32) * 5) / 9).toFixed(0) + celsius;
-        minTemp.innerHTML = (((foreCast[1].low - 32) * 5) / 9).toFixed(0) + celsius;
-        statusText.innerHTML = foreCast[1].text;
+        maxTemp.innerHTML = "Maximum temperature:" + (((foreCast[1].high - 32) * 5) / 9).toFixed(0) + celsius;
+        minTemp.innerHTML = "Minimum temperature:" + (((foreCast[1].low - 32) * 5) / 9).toFixed(0) + celsius;
+        statusText.innerHTML = "Weather Condition:" + foreCast[1].text;
         
         day2.innerHTML = foreCast[2].day;
-        maxTemp2.innerHTML = (((foreCast[2].high - 32) * 5) / 9).toFixed(0) + celsius;
-        minTemp2.innerHTML = (((foreCast[2].low - 32) * 5) / 9).toFixed(0) + celsius;
-        statusText2.innerHTML = foreCast[2].text
+        maxTemp2.innerHTML = "Maximum temperature:" + (((foreCast[2].high - 32) * 5) / 9).toFixed(0) + celsius;
+        minTemp2.innerHTML = "Minimum temperature:" + (((foreCast[2].low - 32) * 5) / 9).toFixed(0) + celsius;
+        statusText2.innerHTML = "Weather Condition:" + foreCast[2].text
 
         day3.innerHTML = foreCast[3].day;
-        maxTemp3.innerHTML = (((foreCast[3].high - 32) * 5) / 9).toFixed(0) + celsius;
-        minTemp3.innerHTML = (((foreCast[3].low - 32) * 5) / 9).toFixed(0) + celsius;
-        statusText3.innerHTML = foreCast[3].text
+        maxTemp3.innerHTML = "Maximum temperature:" + (((foreCast[3].high - 32) * 5) / 9).toFixed(0) + celsius;
+        minTemp3.innerHTML = "Minimum temperature:" + (((foreCast[3].low - 32) * 5) / 9).toFixed(0) + celsius;
+        statusText3.innerHTML = "Weather Condition:" + foreCast[3].text
 
         day4.innerHTML = foreCast[4].day;
-        maxTemp4.innerHTML = (((foreCast[4].high - 32) * 5) / 9).toFixed(0) + celsius;
-        minTemp4.innerHTML = (((foreCast[4].low - 32) * 5) / 9).toFixed(0) + celsius;
-        statusText4.innerHTML = foreCast[4].text
+        maxTemp4.innerHTML = "Maximum temperature:" + (((foreCast[4].high - 32) * 5) / 9).toFixed(0) + celsius;
+        minTemp4.innerHTML = "Minimum temperature:" + (((foreCast[4].low - 32) * 5) / 9).toFixed(0) + celsius;
+        statusText4.innerHTML = "Weather Condition:" + foreCast[4].text
 
         day5.innerHTML = foreCast[5].day;
-        maxTemp5.innerHTML = (((foreCast[5].high - 32) * 5) / 9).toFixed(0) + celsius;
-        minTemp5.innerHTML = (((foreCast[5].low - 32) * 5) / 9).toFixed(0) + celsius;
-        statusText5.innerHTML = foreCast[5].text
+        maxTemp5.innerHTML = "Maximum temperature:" + (((foreCast[5].high - 32) * 5) / 9).toFixed(0) + celsius;
+        minTemp5.innerHTML = "Minimum temperature:" + (((foreCast[5].low - 32) * 5) / 9).toFixed(0) + celsius;
+        statusText5.innerHTML = "Weather Condition:" + foreCast[5].text
 
       });
     })
@@ -216,6 +219,7 @@ getBtn.addEventListener("click", () => {
   let card = document.getElementsByClassName("card-title")[0];
   let moreInfo = document.getElementById('moreInfo');
   
+  moreDays.style.display = "inline";
   moreInfo.style.display = "inline";
   cityCard.style.display = "inline";
   card.innerHTML = infoIcon + " " + inputField.value;
