@@ -104,8 +104,7 @@ getBtn.addEventListener("click", () => {
     {
       method: "GET",
       headers: {
-        key,
-        host
+       
       },
     }
   )
@@ -144,7 +143,7 @@ getBtn.addEventListener("click", () => {
         humidityElement.innerHTML = "Humidity " + arrowIcon + " " + observations.atmosphere.humidity + "%"; 
         pressureElement.innerHTML = "Pressure " + arrowIcon + " " + observations.atmosphere.pressure + " Pa";
         risingElement.innerHTML = "Risinng " + arrowIcon + " " + observations.atmosphere.rising;
-        visibilityElement.innerHTML = "Visibility " + arrowIcon + " " + observations.atmosphere.visibility * 1.6 + " Km.";
+        visibilityElement.innerHTML = "Visibility " + arrowIcon + " " + observations.atmosphere.visibility.toFixed(0) * 1.6 + " Km.";
         windTemperatureElement.innerHTML = windIcon + "Temperature " + convertWindTemperature.toFixed(0) + celsius;
         windDirectionElement.innerHTML = directionIcon + " WindDirection " + observations.wind.direction + "°";
         
