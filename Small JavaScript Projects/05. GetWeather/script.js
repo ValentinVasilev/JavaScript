@@ -75,6 +75,7 @@ let windTemperatureElement = document.getElementById('windTemperature');
 let windDirectionElement = document.getElementById('direction');
 
 let cityInfo;
+let loadingAnimation = document.getElementById('loading-item');
 
 //add Event to the get button
 getBtn.addEventListener("click", () => {
@@ -99,12 +100,14 @@ getBtn.addEventListener("click", () => {
   let convertWindTemperature = 0;
   
   //fetch the weather data from Yahoo API
+  loadingAnimation.style.display = 'inline';
   fetch(
+    
     stringURL,
     {
       method: "GET",
       headers: {
-       
+    
       },
     }
   )
@@ -136,6 +139,7 @@ getBtn.addEventListener("click", () => {
     
           let currentTemperature = document.getElementById('curentTemprature');
           currentTemperature.innerHTML = "Temprature now: " + currentTempratureIcon + convertAverageTemperature.toFixed(0) + celsius;
+          loadingAnimation.style.display = 'none';
         });
         //Fill up the rest of the important data
         sunriseElement.innerHTML = sunriseIcon + "  Sunrise " + observations.astronomy.sunrise;

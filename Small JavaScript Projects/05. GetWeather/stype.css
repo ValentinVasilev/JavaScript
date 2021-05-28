@@ -100,3 +100,10 @@ width: 150px;
     border-left: 6px solid green;
     height: 199px;
   }
+
+.box > #loading-item{
+    position: absolute;
+    top: 550px;
+    left: 870px;
+    background: transparent;
+}
